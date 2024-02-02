@@ -3,8 +3,8 @@ const {default: mongoose} = require('mongoose');
 const webUserSchema = mongoose.Schema({
     email: String,
     password: String,
-    name: String,
-    surname: String,
+    firstName: String,
+    lastName: String,
 },
 {
     timestamps: true // createdAt, updatedAt tarıihlerini otomatik olarak ekler
