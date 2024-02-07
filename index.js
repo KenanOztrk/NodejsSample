@@ -1,12 +1,14 @@
 const express = require('express') // import express
 const { db } = require('./db')
 const  webUserRoutes  = require('./routes/webUserRoutes')
+const  categoryRoutes  = require('./routes/categoryRoutes')
+const productRoutes = require('./routes/productRoutes')
 
 const app = express()
 const PORT = 3000
 require('dotenv').config()
 
-app.use(express.json()) // middleware post request body'sini okuyabilmek için
+app.use(express.json()) // post request body'sini okuyabilmek için
 
 
 // let cities = ["New York", "London", "Paris", "Berlin"]
@@ -999,6 +1001,8 @@ app.use(express.json()) // middleware post request body'sini okuyabilmek için
 db.connect()
 
 app.use('/api/webusers', webUserRoutes); // localhost:3000/api/webusers a gelen istekleri webUserRoutes dosyasına yönlendiriyoruz.
+app.use('/api/categories', categoryRoutes);
+app.use('/api/products', productRoutes);
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`)
